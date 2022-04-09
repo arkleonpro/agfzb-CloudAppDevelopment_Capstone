@@ -1,11 +1,11 @@
-  applications:
-  - name: djangoapp
+applications:
+  - name: ArbFullStack-CapstoneProject
     routes:
-      - route: $HOST.$DOMAIN
+      - route: arbfullstack.mybluemix.net
     memory: 128M
     buildpack: python_buildpack
-  - name: djangoapp-nginx
+  - name: ArbFullStack-nginx
     routes:
-      - route: $HOST.$DOMAIN/static
+      - route: arbfullstack.mybluemix.net/static
     memory: 128M
     buildpack: staticfile_buildpack
