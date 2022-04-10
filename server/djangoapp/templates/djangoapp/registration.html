@@ -1,11 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     {% load static %}
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-</head>
-    <body>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
     <!--Add a registration form here -->
-    </body>
+
+    <center>
+      <div class="container">
+        <div
+          style="
+            margin-top: 5%;
+            display: flex;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+          "
+        >
+          <div class="card bg-light" style="max-width: 100rem">
+            <div class="card-body">
+              <h2>Sign Up Form</h2>
+
+              <p>
+                Please sign up below to enjoy many benefits from our website.
+              </p>
+              {% if error %}
+              <script>
+                alert("{{ error }}");
+              </script>
+              {%endif%}
+
+              <form action="{% url 'djangoapp:registration' %}" method="post">
+                <label for="username">User Name:</label>
+                <br />
+                <input
+                  type="text"
+                  placeholder="Enter User Name"
+                  name="username"
+                  required
+                />
+                <br />
+                <br />
+
+                <label for="firstname">First Name:</label>
+                <br />
+                <input
+                  type="text"
+                  placeholder="Enter First Name"
+                  name="firstname"
+                  required
+                />
+                <br />
+                <br />
+
+                <label for="lastname">Last Name:</label>
+                <br />
+                <input
+                  type="text"
+                  placeholder="Enter Last Name"
+                  name="lastname"
+                  required
+                />
+                <br />
+                <br />
+
+                <label for="psw">Password:</label>
+                <br />
+                <input
+                  type="password"
+                  placeholder="Enter Password"
+                  name="psw"
+                  required
+                />
+                <br />
+                <br />
+
+                {% csrf_token %}
+                <button type="submit" class="btn btn-primary">Sign Up</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </center>
+
+    {% comment %}
+    <form action="{% url 'djangoapp:registration' %}" method="post">
+      <div class="container">
+        <h1>Sign Up</h1>
+        <hr />
+        <label for="username"><b>User Name</b></label>
+        <input
+          type="text"
+          placeholder="Type User Name"
+          name="username"
+          required
+        />
+        <label for="firstname"><b>First Name</b></label>
+        <input
+          type="text"
+          placeholder="Type First Name"
+          name="firstname"
+          required
+        />
+        <label for="lastname"><b>Last Name</b></label>
+        <input
+          type="text"
+          placeholder="Type Last Name"
+          name="lastname"
+          required
+        />
+        <label for="psw"><b>Password</b></label>
+        <input
+          type="password"
+          placeholder="Enter Password"
+          name="psw"
+          required
+        />
+        <div>
+          {% csrf_token %}
+          <button class="button" type="submit">Sign Up</button>
+        </div>
+      </div>
+    </form>
+    {% endcomment %}
+  </body>
 </html>
